@@ -21,8 +21,7 @@ const Card = ({ item, isLive }) => {
           ? `/live-auction/${item?.tokenId}`
           : `/upcoming-auction/${item?.tokenId}`
       }
-      className="w-full bg-[#323232] rounded-lg shadow-lg overflow-hidden cursor-pointer font-alte-haas-grotesk"
-    >
+      className="w-full bg-[#323232] rounded-lg shadow-lg overflow-hidden cursor-pointer font-alte-haas-grotesk">
       <div className="relative mt-0">
         <picture className="block">
           {isLoading && ( // Show loading effect while loading
@@ -41,14 +40,12 @@ const Card = ({ item, isLive }) => {
           />
         </picture>
         <div
-          className={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2`}
-        >
+          className={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-2`}>
           <div
             className={`${
               isLiveAuction ? "bg-green" : "bg-red"
-            } lg:h-5 lg:w-5 h-3 w-3 rounded-full`}
-          ></div>
-          <p className="text-white base-text capitalize font-light">
+            } lg:h-5 lg:w-5 h-3 w-3 rounded-full`}></div>
+          <p className="font-light text-white capitalize base-text">
             {Number(item?.status) === 2
               ? "sold"
               : Number(item?.status) === 4
@@ -60,14 +57,14 @@ const Card = ({ item, isLive }) => {
         </div>
       </div>
 
-      <div className="p-4">
-        <h3 className="xl-text bold text-white mb-2">
+      {/* <div className="p-4">
+        <h3 className="mb-2 text-white xl-text bold">
           {item?.name?.split("#")[0]}
         </h3>
         <p className="text-gray-300 sm-text">
           Token ID: #{item?.name?.split("#")[1]}
         </p>
-      </div>
+      </div> */}
     </Link>
   );
 };
