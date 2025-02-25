@@ -51,15 +51,13 @@ const CreateAuctionModal = ({ setModal }) => {
           // const uris = await getTokenURI(upcomingIds);
           const upcomingData = await Promise.all(
             upcomingRes.map(async (item) => {
+              let data;
               try {
-                const { data } = await axios.get(
-                  item?.tokenURI.replace("ipfs/", "https://ipfs.io/ipfs/")
-                );
-                return { ...data, ...item };
+                data = await axios.get(item?.tokenURI).data;
               } catch (error) {
-                console.error("Error fetching URI:", item?.tokenURI, error);
-                return null;
+                data = null;
               }
+              return { ...data, ...item };
             })
           );
           setAuctions(upcomingData.filter(Boolean));
@@ -153,18 +151,17 @@ const CreateAuctionModal = ({ setModal }) => {
   return (
     <ModalWrapper className="max-w-[53.5625rem]" setIsModalOpen={setModal}>
       <div className="p-[21px] pb-[42px]">
-        <div className="modal-header relative text-white">
-          <p className="lg-text text-center text-white font-alte-haas-grotesk">
+        <div className="relative text-white modal-header">
+          <p className="text-center text-white lg-text font-alte-haas-grotesk">
             Create New Auction
           </p>
           <button
-            className="absolute top-0 right-0 xl-text font-bold font-alte-haas-grotesk"
-            onClick={closeModal}
-          >
+            className="absolute top-0 right-0 font-bold xl-text font-alte-haas-grotesk"
+            onClick={closeModal}>
             X
           </button>
         </div>
-        <div className="modal-body flex flex-col gap-4 mt-6 w-full">
+        <div className="flex flex-col w-full gap-4 mt-6 modal-body">
           <div className="flex flex-col gap-2">
             {/* <label className="form-label-text">Token ID</label>
             <input
@@ -177,7 +174,7 @@ const CreateAuctionModal = ({ setModal }) => {
             /> */}
 
             <div className="relative">
-              <label className="form-label-text mb-2 block">Select NFT</label>
+              <label className="block mb-2 form-label-text">Select NFT</label>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 pb-4">
                   {isAuctionLoading ? (
@@ -190,7 +187,7 @@ const CreateAuctionModal = ({ setModal }) => {
                       </div>
                     ))
                   ) : auctions?.length === 0 ? (
-                    <div className="text-center text-2xl font-bold  text-white font-dela-gothic-one  w-full  py-10 flex justify-center items-center">
+                    <div className="flex items-center justify-center w-full py-10 text-2xl font-bold text-center text-white font-dela-gothic-one">
                       No auctions found
                     </div>
                   ) : (
@@ -208,7 +205,7 @@ const CreateAuctionModal = ({ setModal }) => {
               </div>
             </div>
             {error.tokenId && (
-              <p className="text-red text-sm">{error.tokenId}</p>
+              <p className="text-sm text-red">{error.tokenId}</p>
             )}
           </div>
 
@@ -225,11 +222,11 @@ const CreateAuctionModal = ({ setModal }) => {
               placeholder="0.00"
             />
             {error.basePrice && (
-              <p className="text-red text-sm">{error.basePrice}</p>
+              <p className="text-sm text-red">{error.basePrice}</p>
             )}
-               </div>
+          </div>
 
-               <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2">
             <label className="form-label-text">NFT uri</label>
             <input
               type="text"
@@ -239,7 +236,7 @@ const CreateAuctionModal = ({ setModal }) => {
               className="w-full mx-auto h-[50px] rounded-full bg-[#3c3c3c] lg-text font-bold text-center text-white font-alte-haas-grotesk no-outline px-3"
               placeholder="Enter NFT uri"
             />
-            {error.nftUri && <p className="text-red text-sm">{error.nftUri}</p>}
+            {error.nftUri && <p className="text-sm text-red">{error.nftUri}</p>}
           </div>
 
           <div className="flex flex-col gap-2">
@@ -253,11 +250,11 @@ const CreateAuctionModal = ({ setModal }) => {
               placeholder="Enter interval"
             />
             {error.tokenId && (
-              <p className="text-red text-sm">{error?.interval}</p>
+              <p className="text-sm text-red">{error?.interval}</p>
             )}
           </div>
-          <div className="flex flex-col md:flex-row gap-2">
-            {/* <div className="flex flex-col gap-2 w-full md:w-1/2">
+          <div className="flex flex-col gap-2 md:flex-row">
+            {/* <div className="flex flex-col w-full gap-2 md:w-1/2">
               <label className="text-white font-alte-haas-grotesk">
                 Start Time
               </label>
@@ -269,11 +266,11 @@ const CreateAuctionModal = ({ setModal }) => {
                 className="w-full mx-auto h-[50px] rounded-full bg-[#3c3c3c] lg-text font-bold text-center text-white font-alte-haas-grotesk no-outline px-3"
               />
               {error.startTime && (
-                <p className="text-red text-sm">{error.startTime}</p>
+                <p className="text-sm text-red">{error.startTime}</p>
               )}
             </div> */}
 
-            <div className="flex flex-col gap-2 w-full">
+            <div className="flex flex-col w-full gap-2">
               <label className="form-label-text">Duration</label>
               <div className="flex gap-2">
                 <div className="flex-1">
@@ -346,7 +343,7 @@ const CreateAuctionModal = ({ setModal }) => {
                 </div>
               </div>
               {error.endTime && (
-                <p className="text-red text-sm">{error.endTime}</p>
+                <p className="text-sm text-red">{error.endTime}</p>
               )}
             </div>
           </div>
