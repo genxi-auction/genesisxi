@@ -166,7 +166,7 @@ const AuctionDetail = () => {
                 <div className="flex flex-col text-white md:pt-1 pt-0 lg:pr-[18px] pr-0 md:px-0 px-3 ">
                   <div>
                     <h1 className="lg:text-[3.25rem] md:text-[2.5rem] text-[2rem] md:text-start text-center leading-none uppercase font-dela-gothic-one">
-                      {auction?.name?.split("#")[0]}
+                      {auction?.attributes[0].value}
                     </h1>
                   </div>
 
