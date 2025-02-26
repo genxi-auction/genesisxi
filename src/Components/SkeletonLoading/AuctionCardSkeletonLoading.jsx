@@ -3,7 +3,7 @@ const AuctionCardSkeleton = () => {
     <div className="w-full bg-[#323232] rounded-lg shadow-lg overflow-hidden cursor-pointer font-alte-haas-grotesk animate-pulse">
       <div className="relative mt-0">
         {/* Image Skeleton */}
-        <div className="skeleton-loader w-full xl:h-[370px] lg:h-[370px] md:h-[370px] h-[370px] bg-gray-700"></div>
+        <div className="w-full bg-gray-700 skeleton-loader"></div>
 
         {/* Status Badge Skeleton */}
         <div className="absolute flex items-center gap-2 px-3 py-1 text-sm font-bold rounded-full top-4 right-4">

@@ -121,7 +121,7 @@ const AuctionDetail = () => {
               <div className="grid md:grid-cols-2 grid-cols-1 xl:gap-[117px] lg:gap-[80px] gap-[40px]">
                 <div className="flex justify-center w-full lg:justify-end">
                   <div
-                    className="rounded-[5px] bg-[#323232] max-w-[30.25rem] w-full h-[30.25rem] lg:p-10 md:p-7 p-4"
+                    className="rounded-[10px] bg-[#323232] max-w-[30.25rem] w-full h-[30.25rem]"
                     style={{
                       boxShadow:
                         "0px 4px 11.399999618530273px 0 rgba(0,0,0,0.69)",
@@ -156,7 +156,7 @@ const AuctionDetail = () => {
                         )}
                         alt="user-img"
                         onLoad={handleImageLoad}
-                        className="object-cover w-full h-full "
+                        className="object-cover w-full h-full rounded-[10px] "
                       />
                     </picture>
                     {/* <img src={auctionImage} alt="user-img" className="" /> */}
