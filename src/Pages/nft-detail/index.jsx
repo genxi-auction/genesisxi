@@ -174,7 +174,7 @@ const AuctionDetail = () => {
                     {/* <p className="uppercase ">
                       TOKEN ID #{auction?.name?.split("#")[1]}
                     </p> */}
-                    <p>{auction?.description}</p>
+                    <p className="text-shadow">{auction?.description}</p>
                   </div>
 
                   <div className="lg:pt-9 md:pt-8 pt-7 flex md:flex-row flex-col md:justify-between items-start  gap-[0.5625rem]">
