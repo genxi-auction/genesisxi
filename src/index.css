@@ -20,7 +20,7 @@ input[type="number"] {
 }
 @font-face {
   font-family: "alte_haas_grotesk";
-  src: url("./assets/font/AlteHaasGroteskRegular.ttf");
+  src: url("./font/AlteHaasGroteskRegular.ttf");
   font-weight: normal;
   font-style: normal;
 }
@@ -39,7 +39,7 @@ body {
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
   scrollbar-width: none; /* For Firefox */
 }
-.capital-first-letter::first-letter{
+.capital-first-letter::first-letter {
   text-transform: capitalize;
 }
 
@@ -61,7 +61,7 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #4a4a4a;
   border-radius: 4px;
-  transition:  0.2s ease;
+  transition: 0.2s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -79,7 +79,6 @@ body {
   -ms-overflow-style: none; /* For Internet Explorer and Edge */
   scrollbar-width: none; /* For Firefox */
 }
-
 
 @layer utilities {
   .page-container {
@@ -110,7 +109,7 @@ body {
     @apply lg:text-base md:text-sm text-xs;
   }
   .bold {
-    @apply md:font-bold font-semibold ;
+    @apply md:font-bold font-semibold;
   }
   .no-outline {
     @apply outline-none focus:border-none focus:ring-0;
@@ -157,15 +156,15 @@ body {
   .btn {
     @apply lg:w-[151px] md:w-[140px] w-[120px] lg:h-[53px] h-[45px]  text-black lg-text bold lg:rounded-[5px] md:rounded-[4px] rounded-[3px] font-alte-haas-grotesk inline-block  outline-none border-none;
   }
-  .form-label-text{
-    @apply text-white font-alte-haas-grotesk lg-text bold capital-first-letter
+  .form-label-text {
+    @apply text-white font-alte-haas-grotesk lg-text bold capital-first-letter;
   }
   .modal-backdrop {
     @apply fixed inset-0 top-0 flex justify-center items-center bg-black/30 hidden-scrollbar  backdrop-blur-sm;
   }
 
   .modal-container {
-    @apply  rounded-lg w-full m-auto ;
+    @apply rounded-lg w-full m-auto;
   }
 
   .modal-header {
