@@ -210,7 +210,7 @@ body {
 
 /* Add this CSS to your existing styles */
 .element {
-  @apply w-full h-full bg-[#3fc6af] blur-[106.9px];
+  @apply w-full h-full blur-[106.9px];
 }
 
 .text-shadow {

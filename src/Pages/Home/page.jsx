@@ -12,15 +12,20 @@ const HomePage = () => {
   useScrolltoTop();
   return (
     <>
-      <div className="py-[114px]">
+      <div className="pt-[50px]">
         <div className="page-container">
           <div className="element z-[-1] absolute top-0 left-0 w-full h-full"></div>
 
           <div className="container f-col w-full  gap-[41px] pt-[53px]">
-            <p class="lg:text-[28px] text-[24px] bold text-center text-white text-shadow font-alte-haas-grotesk">
-              <span>Welcome to </span>
+            <p className="lg:text-[28px] text-[24px] bold text-center text-white text-shadow font-alte-haas-grotesk">
+              {/* <span>Welcome to </span>
 
-              <span>Genesis XI</span>
+              <span>Genesis XI</span> */}
+              <img
+                src="/image/header.jpeg"
+                alt="header"
+                className="max-w-[800px] mx-auto"
+              />
             </p>
             <div className="f-col w-full lg:gap-[23px] md:gap-[15px] gap-[10px]">
               {/* <Link to="/auction" className="landing-auction-box">
@@ -30,7 +35,7 @@ const HomePage = () => {
               </Link> */}
               <Landing_btn
                 title={
-                  <p class="landing-auction-box-text text-white ">
+                  <p className="text-white landing-auction-box-text ">
                     View Live Auction
                   </p>
                 }
@@ -38,7 +43,7 @@ const HomePage = () => {
               />
               <Landing_btn
                 title={
-                  <p class="landing-auction-box-text text-light-blue">
+                  <p className="landing-auction-box-text text-light-blue">
                     View Upcoming Auctions
                   </p>
                 }
@@ -46,7 +51,7 @@ const HomePage = () => {
               />
               <Landing_btn
                 title={
-                  <p class="landing-auction-box-text text-white ">
+                  <p className="text-white landing-auction-box-text ">
                     Ended Auctions
                   </p>
                 }
@@ -55,13 +60,18 @@ const HomePage = () => {
               {isAdmin && (
                 <Landing_btn
                   title={
-                    <p class="landing-auction-box-text text-white">
+                    <p className="text-white landing-auction-box-text">
                       create auction
                     </p>
                   }
                   link="/admin/create-auction"
                 />
               )}
+              <img
+                src="/image/footer.png"
+                alt="footer"
+                className="max-w-[1000px] mx-auto"
+              />
             </div>
           </div>
         </div>
