@@ -25,7 +25,7 @@ const Card = ({ item, isLive }) => {
       <div className="relative mt-0">
         <picture className="block">
           {isLoading && ( // Show loading effect while loading
-            <div className="skeleton-loader w-full xl:h-[370px] lg:h-[330px] md:h-[300px] h-[280px] absolute top-0 left-0"></div> // Skeleton loader
+            <div className="skeleton-loader w-full xl:h-[370px] lg:h-[370px] md:h-[370px] h-[370px] absolute top-0 left-0"></div> // Skeleton loader
           )}
 
           <source srcSet={ipfsUrl} type="image/webp" />
@@ -35,7 +35,7 @@ const Card = ({ item, isLive }) => {
             src={ipfsUrl}
             data-src={ipfsUrl}
             alt="user-img"
-            className="w-full xl:h-[370px] lg:h-[330px] md:h-[300px] h-[280px] object-cover object-top"
+            className="w-full xl:h-[370px] lg:h-[370px] md:h-[370px] h-[370px] object-cover object-top"
             onLoad={handleImageLoad} // Added onLoad event
           />
         </picture>
