@@ -115,7 +115,13 @@ export const AuctionProvider = ({ children }) => {
       throw error;
     }
   };
-  async function createAuction(tokenId, duration, basePrice, minimumBid, nftUri) {
+  async function createAuction(
+    tokenId,
+    duration,
+    basePrice,
+    minimumBid,
+    nftUri
+  ) {
     const trx = await sendTransaction("createAuction", [
       tokenId,
       Number(duration),
@@ -124,10 +130,10 @@ export const AuctionProvider = ({ children }) => {
       nftUri,
     ]);
 
-    console.log(trx);
+    // console.log(trx);
 
     const { status, signature, error } = trx;
-    console.log(status, signature, error);
+    // console.log(status, signature, error);
 
     return { status, signature, error };
   }
@@ -162,7 +168,7 @@ export const AuctionProvider = ({ children }) => {
   }
   async function checkIfOwner() {
     const data = await readFromContract("owner");
-    console.log(data, address);
+    // console.log(data, address);
     return data === address;
   }
 
@@ -271,8 +277,7 @@ export const AuctionProvider = ({ children }) => {
         isRefetchLiveAuction,
         setIsRefetchLiveAuction,
         cancelAuction,
-      }}
-    >
+      }}>
       {children}
     </AuctionContext.Provider>
   );

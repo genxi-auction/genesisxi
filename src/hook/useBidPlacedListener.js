@@ -18,9 +18,9 @@ export const useBidPlacedListener = (
     const contract = new ethers.Contract(contractAddress, abi, provider);
 
     const handleBidPlaced = (tokenId, bidder, amount) => {
-      console.log("tokenId", tokenId);
-      console.log("bidder", bidder);
-      console.log("amount", amount);
+      // console.log("tokenId", tokenId);
+      // console.log("bidder", bidder);
+      // console.log("amount", amount);
       // Play sound for every bid
       if (isLiveListener) {
         const audio = new Audio(notificationSound);

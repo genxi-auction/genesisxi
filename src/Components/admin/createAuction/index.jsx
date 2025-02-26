@@ -123,7 +123,7 @@ const CreateAuctionModal = ({ setModal }) => {
       data.interval,
       data.nftUri
     );
-    console.log("trx", trx);
+    // console.log("trx", trx);
     if (trx?.status === false) {
       toast.error("Something went wrong");
       setLoading(false);
@@ -146,7 +146,7 @@ const CreateAuctionModal = ({ setModal }) => {
     setModal(false);
   };
 
-  console.log("auctions", auctions);
+  // console.log("auctions", auctions);
 
   return (
     <ModalWrapper className="max-w-[53.5625rem]" setIsModalOpen={setModal}>

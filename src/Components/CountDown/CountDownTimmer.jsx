@@ -3,7 +3,7 @@ import Countdown, { zeroPad } from "react-countdown";
 import { convertUnixTimestampToLocalDate } from "../../helpers/helper";
 
 const CountDownTimmer = ({ Timer }) => {
-  console.log(Timer);
+  // console.log(Timer);
   const CountdownRender = ({ days, hours, minutes, seconds }) => {
     return (
       <div className="countdown_wrapper">

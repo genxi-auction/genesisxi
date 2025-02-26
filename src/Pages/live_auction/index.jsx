@@ -29,7 +29,7 @@ function LiveAuction({ isLive }) {
       setLoading(true);
       try {
         const res = await getLiveAuctions();
-        console.log("res", res);
+        // console.log("res", res);
 
         const liveAuctionIds = res
           .filter(
@@ -42,7 +42,7 @@ function LiveAuction({ isLive }) {
         if (liveAuctionIds.length === 0) return;
 
         const uris = await getTokenURI(liveAuctionIds);
-        console.log("uris", uris);
+        // console.log("uris", uris);
 
         const auctionData = await Promise.all(
           uris.map(async (uri, index) => {
@@ -64,7 +64,7 @@ function LiveAuction({ isLive }) {
       }
     };
 
-    console.log("liveAuctions", liveAuctions);
+    // console.log("liveAuctions", liveAuctions);
 
     const fetchUpcomingAndEndedAuctions = async () => {
       setLoading(true);
@@ -79,7 +79,8 @@ function LiveAuction({ isLive }) {
           endedRes?.map(async (item) => {
             try {
               const { data } = await axios.get(
-                "https://amethyst-giant-mouse-602.mypinata.cloud/ipfs/bafybeihr23yhfyk2wishh7gc7efmvkmrvy4z5ovq764pxjlvornbixddwu/" + item?.tokenURI
+                "https://amethyst-giant-mouse-602.mypinata.cloud/ipfs/bafybeihr23yhfyk2wishh7gc7efmvkmrvy4z5ovq764pxjlvornbixddwu/" +
+                  item?.tokenURI
               );
               return { ...data, ...item };
             } catch (error) {
@@ -112,7 +113,7 @@ function LiveAuction({ isLive }) {
         <div className="relative">
           <div className="element z-[-1] absolute top-0 left-0 w-full h-full"></div>
           <div className="container">
-            <div className="px-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-10 md:gap-8 gap-5">
+            <div className="grid grid-cols-1 gap-5 px-4 lg:grid-cols-3 md:grid-cols-2 lg:gap-10 md:gap-8">
               {loading ? (
                 Array(9)
                   .fill()
