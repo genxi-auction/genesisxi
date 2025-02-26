@@ -12,11 +12,11 @@ const HomePage = () => {
   useScrolltoTop();
   return (
     <>
-      <div className="pt-[50px]">
+      <div className="py-auto">
         <div className="page-container">
           <div className="element z-[-1] absolute top-0 left-0 w-full h-full"></div>
 
-          <div className="container f-col w-full  gap-[41px] pt-[53px]">
+          <div className="container f-col w-full  gap-[41px] my-auto">
             <p className="lg:text-[28px] text-[24px] bold text-center text-white text-shadow font-alte-haas-grotesk">
               {/* <span>Welcome to </span>
 
@@ -24,7 +24,7 @@ const HomePage = () => {
               <img
                 src="/image/header.jpeg"
                 alt="header"
-                className="max-w-[800px] mx-auto"
+                className="lg:max-w-[800px] max-w-[90vw] mx-auto"
               />
             </p>
             <div className="f-col w-full lg:gap-[23px] md:gap-[15px] gap-[10px]">
@@ -70,7 +70,7 @@ const HomePage = () => {
               <img
                 src="/image/footer.png"
                 alt="footer"
-                className="max-w-[1000px] mx-auto"
+                className="lg:max-w-[1000px] max-w-[90vw] mx-auto"
               />
             </div>
           </div>

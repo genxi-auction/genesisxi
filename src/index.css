@@ -82,7 +82,7 @@ body {
 
 @layer utilities {
   .page-container {
-    @apply relative lg:min-h-[650px] lg:pb-5 pb-[114px] h-full flex;
+    @apply relative min-h-[90vh] flex;
   }
   .f-col {
     @apply flex flex-col;
