@@ -53,11 +53,13 @@ const AuctionDetail = () => {
 
         // const tokenURI = await getTokenURI([id]);
         // console.log("tokenURI", tokenURI);
-
         const data = await axios.get(
-          "https://amethyst-giant-mouse-602.mypinata.cloud/ipfs/bafybeihr23yhfyk2wishh7gc7efmvkmrvy4z5ovq764pxjlvornbixddwu/" +
-            auction?.tokenURI
+          "https://amethyst-giant-mouse-602.mypinata.cloud/ipfs/bafybeifmw2wp4k6uowoit2ho34gon32owgu2oegkgq4xhu7qwv3rti736a/" +
+            auction?.tokenURI +
+            ".json"
         );
+
+        console.log("data", data);
 
         setAuction({ ...data?.data, ...auction });
       } catch (error) {

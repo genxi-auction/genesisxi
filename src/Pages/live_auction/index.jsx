@@ -47,7 +47,7 @@ function LiveAuction({ isLive }) {
         const auctionData = await Promise.all(
           uris.map(async (uri, index) => {
             try {
-              const { data } = await axios.get(uri.replace(/\.json$/, ""));
+              const { data } = await axios.get(uri);
               return { ...data, tokenId: liveAuctionIds[index] };
             } catch (error) {
               console.error("Error fetching URI:", uri, error);
@@ -79,7 +79,7 @@ function LiveAuction({ isLive }) {
           endedRes?.map(async (item) => {
             try {
               const { data } = await axios.get(
-                "https://amethyst-giant-mouse-602.mypinata.cloud/ipfs/bafybeihr23yhfyk2wishh7gc7efmvkmrvy4z5ovq764pxjlvornbixddwu/" +
+                "https://amethyst-giant-mouse-602.mypinata.cloud/ipfs/bafybeifmw2wp4k6uowoit2ho34gon32owgu2oegkgq4xhu7qwv3rti736a/" +
                   item?.tokenURI
               );
               return { ...data, ...item };

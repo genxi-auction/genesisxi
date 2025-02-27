@@ -50,7 +50,7 @@ const EndAuctionModal = ({ setModal }) => {
         const auctionData = await Promise.all(
           uris.map(async (uri, index) => {
             try {
-              const { data } = await axios.get(uri.replace(/\.json$/, ""));
+              const { data } = await axios.get(uri);
               return { ...data, tokenId: liveAuctionIds[index] };
             } catch (error) {
               console.error("Error fetching URI:", uri, error);
@@ -101,18 +101,17 @@ const EndAuctionModal = ({ setModal }) => {
   return (
     <ModalWrapper className="max-w-[53.5625rem]" setIsModalOpen={setModal}>
       <div className="p-[21px] pb-[42px]">
-        <div className="modal-header relative text-white">
-          <p className="lg-text text-center text-white font-alte-haas-grotesk">
+        <div className="relative text-white modal-header">
+          <p className="text-center text-white lg-text font-alte-haas-grotesk">
             End Auction
           </p>
           <button
-            className="absolute top-0 right-0 xl-text font-bold font-alte-haas-grotesk"
-            onClick={closeModal}
-          >
+            className="absolute top-0 right-0 font-bold xl-text font-alte-haas-grotesk"
+            onClick={closeModal}>
             X
           </button>
         </div>
-        <div className="modal-body flex flex-col gap-4 mt-6 w-full">
+        <div className="flex flex-col w-full gap-4 mt-6 modal-body">
           <div className="flex flex-col gap-2">
             {/* <label className="text-white font-alte-haas-grotesk">
               Token ID
@@ -125,7 +124,7 @@ const EndAuctionModal = ({ setModal }) => {
               placeholder="Enter token ID"
             /> */}
             <div className="relative">
-              <label className="form-label-text mb-2 block">Select NFT</label>
+              <label className="block mb-2 form-label-text">Select NFT</label>
               <div className="overflow-x-auto bg-transparent">
                 <div className="flex gap-4 pb-4">
                   {isAuctionLoading ? (
@@ -136,7 +135,7 @@ const EndAuctionModal = ({ setModal }) => {
                       </div>
                     ))
                   ) : auctions?.length === 0 ? (
-                    <div className="text-center text-2xl font-bold  text-white font-dela-gothic-one  w-full  py-10 flex justify-center items-center">
+                    <div className="flex items-center justify-center w-full py-10 text-2xl font-bold text-center text-white font-dela-gothic-one">
                       No auctions found
                     </div>
                   ) : (
@@ -153,7 +152,7 @@ const EndAuctionModal = ({ setModal }) => {
                 </div>
               </div>
             </div>
-            {error && <p className="text-red text-sm">{error}</p>}
+            {error && <p className="text-sm text-red">{error}</p>}
           </div>
 
           <ConnectWallet
