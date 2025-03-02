@@ -41,7 +41,7 @@ const AuctionDetail = () => {
   const [isCancelLoading, setIsCancelLoading] = useState(false);
   const [isImgLoading, setIsImgLoading] = useState(true);
   const [auction, setAuction] = useState(null);
-  const [showAllBids, setShowAllBids] = useState(false);
+  const [showAllBids, setShowAllBids] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useBidPlacedListener("BidPlaced", false, id);

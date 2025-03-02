@@ -77,7 +77,6 @@ const HomePage = () => {
         </div>
       </div>
       <InfoModal />
-      {/* <Congratualation /> */}
     </>
   );
 };
