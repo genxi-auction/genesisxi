@@ -54,7 +54,7 @@ const AuctionDetail = () => {
         // const tokenURI = await getTokenURI([id]);
         // console.log("tokenURI", tokenURI);
         const data = await axios.get(
-          "https://amethyst-giant-mouse-602.mypinata.cloud/ipfs/bafybeifmw2wp4k6uowoit2ho34gon32owgu2oegkgq4xhu7qwv3rti736a/" +
+          "https://ipfs.io/ipfs/bafybeiavsfucwoy5dp4mrh23fz5dgzojxoyohimecn2owclndid3otb7nm/" +
             auction?.tokenURI +
             ".json"
         );

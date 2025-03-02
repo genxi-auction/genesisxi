@@ -79,8 +79,9 @@ function LiveAuction({ isLive }) {
           endedRes?.map(async (item) => {
             try {
               const { data } = await axios.get(
-                "https://amethyst-giant-mouse-602.mypinata.cloud/ipfs/bafybeifmw2wp4k6uowoit2ho34gon32owgu2oegkgq4xhu7qwv3rti736a/" +
-                  item?.tokenURI
+                "https://ipfs.io/ipfs/bafybeiavsfucwoy5dp4mrh23fz5dgzojxoyohimecn2owclndid3otb7nm/" +
+                  item?.tokenURI +
+                  ".json"
               );
               return { ...data, ...item };
             } catch (error) {
