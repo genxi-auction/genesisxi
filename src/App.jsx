@@ -1,4 +1,3 @@
-import React from "react";
 import HomePage from "./Pages/Home/page";
 import AuctionDetail from "./Pages/nft-detail";
 import {
@@ -39,10 +38,6 @@ const App = () => {
           path: "/live-auction",
           element: <LiveAuction isLive={true} />,
         },
-        // {
-        //   path: "/upcoming-auction",
-        //   element: <LiveAuction isLive={false} />,
-        // },
         {
           path: "/ended-auction",
           element: <LiveAuction isLive={false} />,
@@ -56,12 +51,12 @@ const App = () => {
     },
 
     {
-      path: "/*", // Changed from * to /* to properly catch all unmatched routes
+      path: "/*",
       element: <NotFoundPage />,
     },
   ]);
 
-  return <RouterProvider router={router} />; // Removed unnecessary fragment
+  return <RouterProvider router={router} />;
 };
 
 export default App;

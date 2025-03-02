@@ -246,7 +246,7 @@ const AuctionDetail = () => {
                       <div>
                         <div className="f-col gap-[0.5625rem]">
                           <h2 className="tracking-wide capitalize lg-text font-dela-gothic-one">
-                            End PRICE
+                            END PRICE
                           </h2>
                           <p className="leading-tight text-white base-text bold font-alte-haas-grotesk">
                             {formatEther(auction?.highestBid || 0n)} ETH
