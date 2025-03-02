@@ -52,7 +52,7 @@ const Card = ({ item, isLive }) => {
               ? "cancelled"
               : isLiveAuction
               ? "Live"
-              : "Upcoming"}
+              : "Sold"}
           </p>
         </div>
       </div>
