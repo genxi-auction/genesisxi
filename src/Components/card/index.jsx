@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import auctionImage from "../../assets/27-new-1.png";
 const Card = ({ item, isLive }) => {
-  const ipfsUrl = item?.image?.replace("ipfs://", "https://ipfs.io/ipfs/");
+  const ipfsUrl = item?.image;
   const location = useLocation();
   const isLiveAuction = location.pathname === "/live-auction";
 

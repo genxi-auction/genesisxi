@@ -54,7 +54,7 @@ const AuctionDetail = () => {
         // const tokenURI = await getTokenURI([id]);
         // console.log("tokenURI", tokenURI);
         const data = await axios.get(
-          "https://ipfs.io/ipfs/bafybeiavsfucwoy5dp4mrh23fz5dgzojxoyohimecn2owclndid3otb7nm/" +
+          "https://ipfs.io/ipfs/bafybeifwkdthtoxc4q6uucyxjbs4bq6yvvigqhs6smufjrwxalhdev5sr4/" +
             auction?.tokenURI +
             ".json"
         );
@@ -132,30 +132,12 @@ const AuctionDetail = () => {
                       {isImgLoading && ( // Show loading effect while loading
                         <div className="absolute top-0 left-0 w-full h-full skeleton-loader"></div> // Skeleton loader
                       )}
-                      <source
-                        srcSet={auction?.image?.replace(
-                          "ipfs://",
-                          "https://ipfs.io/ipfs/"
-                        )}
-                        type="image/webp"
-                      />
-                      <source
-                        srcSet={auction?.image?.replace(
-                          "ipfs://",
-                          "https://ipfs.io/ipfs/"
-                        )}
-                        type="image/png"
-                      />
+                      <source srcSet={auction?.image} type="image/webp" />
+                      <source srcSet={auction?.image} type="image/png" />
                       <img
                         loading="lazy"
-                        src={auction?.image?.replace(
-                          "ipfs://",
-                          "https://ipfs.io/ipfs/"
-                        )}
-                        data-src={auction?.image?.replace(
-                          "ipfs://",
-                          "https://ipfs.io/ipfs/"
-                        )}
+                        src={auction?.image}
+                        data-src={auction?.image}
                         alt="user-img"
                         onLoad={handleImageLoad}
                         className="object-cover w-full h-full rounded-[10px] "

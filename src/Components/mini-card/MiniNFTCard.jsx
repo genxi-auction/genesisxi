@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const MiniNFTCard = ({ auction, index, data, setData }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const ipfsUrl = auction?.image?.replace('ipfs://', 'https://ipfs.io/ipfs/');
+  const ipfsUrl = auction?.image;
   const handleImageLoad = () => {
     setIsLoading(false);
   };
@@ -12,11 +12,10 @@ const MiniNFTCard = ({ auction, index, data, setData }) => {
       onClick={() => setData({ ...data, tokenId: auction.tokenId })}
       className={`flex flex-col gap-3 items-center cursor-pointer lg:min-w-[200px] md:min-w-[150px] min-w-[120px] p-2 rounded-lg ${
         data.tokenId === auction.tokenId
-          ? 'border-2 border-light-blue'
-          : 'bg-[#2c2c2c]'
-      } transition-colors`}
-    >
-      {/* <picture className="block relative">
+          ? "border-2 border-light-blue"
+          : "bg-[#2c2c2c]"
+      } transition-colors`}>
+      {/* <picture className="relative block">
         {isLoading && ( // Show loading effect while loading
           <div className="skeleton-loader w-full xl:h-[150px] lg:h-[140px] md:h-[130px] h-[120px] absolute top-0 left-0"></div> // Skeleton loader
         )}

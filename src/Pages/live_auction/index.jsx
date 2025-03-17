@@ -79,7 +79,7 @@ function LiveAuction({ isLive }) {
           endedRes?.map(async (item) => {
             try {
               const { data } = await axios.get(
-                "https://ipfs.io/ipfs/bafybeiavsfucwoy5dp4mrh23fz5dgzojxoyohimecn2owclndid3otb7nm/" +
+                "https://ipfs.io/ipfs/bafybeifwkdthtoxc4q6uucyxjbs4bq6yvvigqhs6smufjrwxalhdev5sr4/" +
                   item?.tokenURI +
                   ".json"
               );

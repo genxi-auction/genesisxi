@@ -33,85 +33,14 @@ const Layout = () => {
     open();
   };
 
-  // useEffect(() => {
-  //   if (upcomingAuctions?.length > 0) {
-  //     const timestamps = upcomingAuctions.map((auction) => {
-  //       if (Number(auction.tokenId) >= 1) {
-  //         return Number(auction.startTime);
-  //       }
-  //     });
-
-  //     const minTimestamp = Math.min(...timestamps);
-
-  //     setUpcomingAuction(minTimestamp);
-  //   }
-  // }, [upcomingAuctions?.length, isRefetchUpcomingAuctions]);
-
-  // useEffect(() => {
-  //   if (upcomingAuction) {
-  //     const targetTime = upcomingAuction * 1000; // Convert seconds to milliseconds
-
-  //     const interval = setInterval(() => {
-  //       const now = new Date().getTime(); // Current time in milliseconds
-  //       const distance = targetTime - now; // Calculate the distance
-
-  //       if (distance < 0) {
-  //         clearInterval(interval);
-  //         setTimeLeft("EXPIRED");
-
-  //         setIsRefetchUpcomingAuctions((prev) => !prev);
-  //         return;
-  //       }
-
-  //       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  //       const hours = Math.floor(
-  //         (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //       );
-  //       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  //       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  //       const formattedTime = `${days}D:${hours}H:${minutes}M:${seconds}S`;
-  //       setTimeLeft(formattedTime);
-  //     }, 1000);
-
-  //     return () => clearInterval(interval); // Cleanup on unmount
-  //   }
-  // }, [upcomingAuction, isRefetchUpcomingAuctions]);
-
-  // useEffect(() => {
-  //   getEndedAuctions().then(async (data) => {
-  //     setIsEndedAuctionsLoading(true);
-  //     // console.log(data);
-  //     const auctionData = await Promise.all(
-  //       data?.map(async (item, index) => {
-  //         // console.log(item);
-  //         // Added index parameter
-  //         try {
-  //           const { data } = await axios.get(
-  //             item?.tokenURI.replace("ipfs/", "https://ipfs.io/ipfs/")
-  //           );
-
-  //           return { ...data, ...item }; // Append token ID
-  //         } catch (error) {
-  //           console.error("Error fetching URI:", uri, error);
-  //           return null;
-  //         }
-  //       })
-  //     );
-  //     setIsEndedAuctionsLoading(false);
-  //     setEndedAuctions(auctionData);
-  //   });
-  // }, [isEndRefetch]);
-
   return (
     <div className="min-h-screen">
       <header className="container flex justify-between items-center bg-transparent lg:pt-[2.875rem] md:pt-[2.5rem] pt-[1.5rem] lg:pl-[76px] md:pl-[37px] pl-[12px] lg:pr-[37px] md:pr-[15px] pr-[12px] relative">
-        <div className="flex items-center lg:gap-3 md:gap-2 gap-1 md:tracking-normal sm:tracking-tighter">
+        <div className="flex items-center gap-1 lg:gap-3 md:gap-2 md:tracking-normal sm:tracking-tighter">
           <span
             className={`lg-text bold ${
               isAnyAuctionLive ? "text-lighter-green" : "text-red"
-            } font-alte-haas-grotesk text-nowrap `}
-          >
+            } font-alte-haas-grotesk text-nowrap `}>
             {isAnyAuctionLive ? "Auction Live Now" : "See upcoming auctions"}
           </span>
 
@@ -120,19 +49,17 @@ const Layout = () => {
               isAnyAuctionLive
                 ? "bg-lighter-green border-light-green"
                 : "bg-red border-red/40"
-            } border  flex-center relative`}
-          >
+            } border  flex-center relative`}>
             <div
               className={`lg:w-[1.25rem] lg:h-[1.25rem] md:w-[1rem] md:h-[1rem] w-[0.65rem] h-[0.65rem] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full ${
                 isAnyAuctionLive ? "bg-light-green" : "bg-[#daa47262]"
-              }`}
-            ></div>
+              }`}></div>
           </div>
         </div>
 
         {/* {!isAuctionLive && isNotEmptyString(timeLeft) && (
-          <div className="text-center text-white lg:relative absolute lg:top-auto top-full lg:left-auto left-1/2 lg:translate-x-0 -translate-x-1/2 lg:mt-0 mt-7">
-            <p className="lg-text bold text-white font-alte-haas-grotesk">
+          <div className="absolute text-center text-white -translate-x-1/2 lg:relative lg:top-auto top-full lg:left-auto left-1/2 lg:translate-x-0 lg:mt-0 mt-7">
+            <p className="text-white lg-text bold font-alte-haas-grotesk">
               Next Auction
             </p>
             <p class="lg-text text-center text-white font-dela-gothic-one tracking-[0.4rem]">
@@ -141,8 +68,8 @@ const Layout = () => {
           </div>
         )} */}
 
-        <div className="flex lg:gap-6 md:gap-4 gap-3 items-center font-montserrat">
-          <Link to="/" className="text-white base-text bold cursor-pointer ">
+        <div className="flex items-center gap-3 lg:gap-6 md:gap-4 font-montserrat">
+          <Link to="/" className="text-white cursor-pointer base-text bold ">
             HOME
           </Link>
 
@@ -180,11 +107,11 @@ export default Layout;
 //     {/* footer heading end */}
 
 //     {/* footer table start */}
-//     <div className="f-col h-full">
-//       <table className="f-col w-full h-full border-collapse table-fixed ">
+//     <div className="h-full f-col">
+//       <table className="w-full h-full border-collapse table-fixed f-col ">
 //         <thead>
 //           {/* footer header start*/}
-//           <tr className="w-full flex items-center justify-around  h-fit md:border-b md:border-white footer-table-body-row-padding overflow-x-auto overflow-y-hidden">
+//           <tr className="flex items-center justify-around w-full overflow-x-auto overflow-y-hidden h-fit md:border-b md:border-white footer-table-body-row-padding">
 //             <td className="footer-table-header-cell">Name</td>
 //             <td className="footer-table-header-cell">Token id</td>
 //             <td className="footer-table-header-cell">sold for</td>
@@ -199,16 +126,16 @@ export default Layout;
 //               <thead>
 //                 <tr className="bg-gray-200">
 //                   <th className="p-4 border-b border-gray-300">
-//                     <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+//                     <div className="w-1/2 h-4 bg-gray-300 rounded"></div>
 //                   </th>
 //                   <th className="p-4 border-b border-gray-300">
-//                     <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+//                     <div className="w-1/3 h-4 bg-gray-300 rounded"></div>
 //                   </th>
 //                   <th className="p-4 border-b border-gray-300">
-//                     <div className="h-4 bg-gray-300 rounded w-1/4"></div>
+//                     <div className="w-1/4 h-4 bg-gray-300 rounded"></div>
 //                   </th>
 //                   <th className="p-4 border-b border-gray-300">
-//                     <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+//                     <div className="w-1/3 h-4 bg-gray-300 rounded"></div>
 //                   </th>
 //                 </tr>
 //               </thead>
@@ -216,16 +143,16 @@ export default Layout;
 //                 {Array.from({ length: 5 }).map((_, index) => (
 //                   <tr key={index} className="bg-white">
 //                     <td className="p-4 border-b border-gray-300">
-//                       <div className="h-4 bg-gray-300 rounded w-1/2"></div>
+//                       <div className="w-1/2 h-4 bg-gray-300 rounded"></div>
 //                     </td>
 //                     <td className="p-4 border-b border-gray-300">
-//                       <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+//                       <div className="w-1/3 h-4 bg-gray-300 rounded"></div>
 //                     </td>
 //                     <td className="p-4 border-b border-gray-300">
-//                       <div className="h-4 bg-gray-300 rounded w-1/4"></div>
+//                       <div className="w-1/4 h-4 bg-gray-300 rounded"></div>
 //                     </td>
 //                     <td className="p-4 border-b border-gray-300">
-//                       <div className="h-4 bg-gray-300 rounded w-1/3"></div>
+//                       <div className="w-1/3 h-4 bg-gray-300 rounded"></div>
 //                     </td>
 //                   </tr>
 //                 ))}
@@ -234,9 +161,9 @@ export default Layout;
 //           </div>
 //         ) : (
 //           <>
-//             <tbody className="f-col w-full h-full ">
+//             <tbody className="w-full h-full f-col ">
 //               {EndedAuctions?.map((item, index) => (
-//                 <tr className="w-full flex items-start justify-around h-fit md:border-b md:border-white hover:bg-white/10 transition-all duration-300 footer-table-body-row-padding overflow-x-auto overflow-y-hidden">
+//                 <tr className="flex items-start justify-around w-full overflow-x-auto overflow-y-hidden transition-all duration-300 h-fit md:border-b md:border-white hover:bg-white/10 footer-table-body-row-padding">
 //                   <td className="footer-table-text-light-blue footer-table-body-cell">
 //                     {item?.name?.split("#")[0]}
 //                   </td>
@@ -295,7 +222,7 @@ export default Layout;
 //           </div>
 //         </div>
 //         <div className="footer-table-col-container">
-//           <div className="footer-table-body border-none">
+//           <div className="border-none footer-table-body">
 //             <span className="footer-table-text-light-blue">
 //               0x23482...
 //             </span>
